@@ -1,2 +1,4 @@
 ---
 # defaults file for .
+base_hostname: ubuntu1204
+base_prompt_string: "${debian_chroot:+($debian_chroot)}\\u@\\H:\\w\\$ "

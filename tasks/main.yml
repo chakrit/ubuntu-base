@@ -1,2 +1,33 @@
 ---
-# tasks file for .
+
+# setup things
+- name: Update APT caches.
+  apt: update_cache=yes
+- name: Installing common packages.
+  apt: state=present pkg={{ item }}
+  with_items:
+  - build-essential
+  - git
+  - libssl-dev
+  - libcap2-bin
+  - python
+  - python-software-properties
+  - python-setuptools
+  - upstart
+  - monit
+  - ufw
+  - vim
+  - htop
+  - sysstat
+  - iftop
+- name: Performing dist-upgrade.
+  apt: upgrade=dist
+
+# hostname
+- name: Updating machine hostname.
+  hostname: name={{ base_hostname }}
+
+# prompt
+- name: Setting up the global prompt string.
+  template: src=prompt.sh dest=/etc/profile.d/prompt.sh mode=0644
+
