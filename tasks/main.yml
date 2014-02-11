@@ -1,6 +1,6 @@
 ---
 
-# setup things
+# packages
 - name: Update APT caches.
   apt: update_cache=yes
 - name: Installing common packages.
@@ -23,11 +23,16 @@
 - name: Performing dist-upgrade.
   apt: upgrade=dist
 
-# hostname
+# configs
 - name: Updating machine hostname.
   hostname: name={{ base_hostname }}
-
-# prompt
 - name: Setting up the global prompt string.
   template: src=prompt.sh dest=/etc/profile.d/prompt.sh mode=0644
+
+# access
+- name: Checking public keys list.
+  authorized_key:
+    user: "{{ base_admin_username }}"
+    key: "{{ item }}"
+  with_items: base_admin_keys
 
