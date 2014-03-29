@@ -8,21 +8,21 @@
   with_items:
   - build-essential
   - git
-  - mercurial
-  - libssl-dev
+  - htop
+  - iftop
   - libcap2-bin
-  - python
-  - python-software-properties
-  - python-setuptools
-  - python-keyczar
-  - upstart
+  - libssl-dev
+  - mercurial
   - monit
   - ntp
-  - ufw
-  - vim
-  - htop
+  - python
+  - python-keyczar
+  - python-setuptools
+  - python-software-properties
   - sysstat
-  - iftop
+  - ufw
+  - upstart
+  - vim
 - name: Performing dist-upgrade.
   apt: upgrade=dist
 
