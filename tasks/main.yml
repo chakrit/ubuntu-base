@@ -17,6 +17,7 @@
   - python-keyczar
   - upstart
   - monit
+  - ntp
   - ufw
   - vim
   - htop
